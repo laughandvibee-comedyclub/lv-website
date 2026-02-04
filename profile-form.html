@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laugh and Vibe | Profile Form</title>
+    <link rel="stylesheet" href="../output.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body class="text-[#FFEFEF] font-poppins scroll-smooth">
+    <!-- header -->
+    <header class="max-w-[1600px] mx-auto bg-black py-1 px-1 md:px-3 lg:px-17 lg:py-6 font-medium w-full">
+        <!-- header-main-flex container -->
+        <div class=" flex flex-col items-center lg:flex-row justify-between">
+            <!-- input -->
+            <input class="hidden peer" type="checkbox" name="menu-checkbox" id="menu-checkbox"
+                area-labelledby="hamburger-icon close-icon">
+            <!-- logo -->
+            <div class="flex items-center w-full lg:w-fit ">
+                <a href="../../index.html"
+                    class="flex items-center lg:w-fit max-lg:py-1 lg:flex-col lg:items-start xl:flex-row xl:items-center">
+                    <img src="../../assets/images/home/logo.png" alt="laugh-and-vibe-logo" class="size-14">
+                    <span class="hidden md:block pl-4 text-xs lg:pl-0 xl:pl-4">Laugh and Vibe</span>
+                </a>
+            </div>
+
+            <!-- labels for input -->
+            <label id="hamburger-icon"
+                class="peer-checked:hidden absolute top-4 right-3 transition-all duration-300 ease-in-out lg:hidden"
+                for="menu-checkbox">
+                <svg class="cursor-pointer" xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960"
+                    width="40px" fill="#FFEFEF">
+                    <path
+                        d="M120-240v-66.67h720V-240H120Zm0-206.67v-66.66h720v66.66H120Zm0-206.66V-720h720v66.67H120Z" />
+                </svg>
+            </label>
+            <label id="close-icon"
+                class="hidden peer-checked:block absolute top-4 right-3 transition-all duration-300 ease-in-out lg:peer-checked:hidden lg:hidden"
+                for="menu-checkbox">
+                <svg class="cursor-pointer" xmlns="http://www .w3.org/2000/svg" height="40px" viewBox="0 -960 960 960"
+                    width="40px" fill="#FFEFEF">
+                    <path
+                        d="m251.33-204.67-46.66-46.66L433.33-480 204.67-708.67l46.66-46.66L480-526.67l228.67-228.66 46.66 46.66L526.67-480l228.66 228.67-46.66 46.66L480-433.33 251.33-204.67Z" />
+                </svg>
+            </label>
+
+            <!-- nav links -->
+            <nav
+                class="flex flex-col w-full lg:w-fit divide-y divide-gray-600 lg:divide-y-0 lg:flex-row space-x-2.5 xl:space-x-4 2xl:space-x-8 text-xs flex-wrap max-lg:max-h-0 max-lg:overflow-hidden max-lg:peer-checked:max-h-[600px] transition-all duration-300 ease-in-out">
+                <div class="w-full lg:w-fit py-4 text-center max-lg:border-t border-gray-600">
+                    <a class="" href="../../index.html#">Home</a>
+                </div>
+                <div class="w-full lg:w-fit py-4 text-center">
+                    <a href="../about.html">About</a>
+                </div>
+                <div class="w-full lg:w-fit py-4 text-center">
+                    <a href="../../index.html#our-services-section">Service</a>
+                </div>
+                <div class="w-full lg:w-fit py-4 text-center">
+                    <a href="../shows.html">Shows</a>
+                </div>
+                <div class="w-full lg:w-fit py-4 text-center">
+                    <a href="../for-corporates.html">For Corporates</a>
+                </div>
+                <div class="w-full lg:w-fit py-4 text-center">
+                    <a href="../for-colleges.html">For Colleges</a>
+                </div>
+                <div class="w-full lg:w-fit py-4 text-center">
+                    <a href="../artists.html">Artists</a>
+                </div>
+                <div class="w-full lg:w-fit py-4 text-center">
+                    <a href="../index.html#inside-the-room">Gallery</a>
+                </div>
+                <div class="w-full lg:w-fit py-4 text-center">
+                    <a href="../studio-rental.html">Studio Rental</a>
+                </div>
+                <div class="w-full lg:w-fit py-4 text-center max-lg:border-b border-gray-600">
+                    <a href="../contact.html">Contact</a>
+                </div>
+            </nav>
+
+            <!-- book tickets button -->
+            <div
+                class="max-lg:max-h-0 max-lg:overflow-hidden max-lg:peer-checked:max-h-[100px] max-lg:peer-checked:my-6 transition-all duration-300 ease-in-out rounded">
+                <a href="https://linktr.ee/laughandvibe" target="_blank"
+                    class="flex justify-center p-3 bg-linear-to-r from-[#9049D3] via-28% via-[#CE5573] via-65% via-[#F35D23] to-[#FFC310] to-100% text-black text-xs text-center rounded-xl lg:my-0">
+                    Book Tickets
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- main -->
+    <main class="max-w-[1600px] mx-auto w-full">
+        <!-- profile-form section -->
+        <section id="profile-form-section" class="bg-linear-to-b from-[#000000] to-[#1B0B2A] px-1 md:px-3 lg:px-17">
+            <!-- main flex container -->
+            <div class="flex flex-col items-start w-full gap-7 py-16">
+                <!-- sub-flex item-1 -->
+                <div class="flex flex-col gap-2 w-full justify-end">
+                    <div class="flex gap-2 text-[#B39A09] font-medium py-2">
+                        <p class="uppercase text-sm">Laugh & Vibe • Artist Network</p>
+                    </div>
+                    <!-- h1 heading -->
+                    <h2 class="text-xl text-[#E4E4E4] font-semibold lg:text-start lg:text-3xl -mb-3">
+                        Build your public artist profile </h2>
+                    <!-- para and artist-code container -->
+                    <div class="flex flex-col justify-between items-start md:flex-row md:items-end">
+                        <!-- para -->
+                        <p class="max-w-md lg:max-w-lg font-light text-sm md:text-base text-[#DEDBDB]">
+                            Fill these details once. This becomes your Artist Solo Page. We’ll review it and publish it
+                            to the roster.
+                        </p>
+                        <!-- artist-id item-2 -->
+                        <div class="flex flex-col">
+                            <p class="max-w-xl lg:max-w-5xl font-light pt-6 pb-1 text-[#D9D9D9]">
+                                Artist ID
+                            </p>
+                            <p class="uppercase text-sm text-[#4B4545]">auto-generated</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- sub-item-2 preview-and-profile-form main grid container -->
+                <div
+                    class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 w-full p-8 rounded-xl bg-linear-to-tr from-[#00000066] to-[#544F5666] inset-shadow-[4.51px_6.01px_6.01px_#716F6F40] shadow-[6.01px_6.01px_8.12px_#716F6F80]">
+                    <!-- profile-form item-1 -->
+                    <div class="md:row-span-2 lg:col-span-2 flex flex-col gap-6">
+                        <!-- error message -->
+                        <p id="errorMsg" class="text-xs text-red-400"></p>
+                        <!-- success message -->
+                        <p id="successMsg" class="text-xs text-emerald-300"></p>
+
+                        <!-- profile-basic form -->
+                        <form id="basicInfoEditForm" class="w-full" action="#" method="POST">
+                            <!-- form grid container -->
+                            <div class="grid gap-6">
+                                <!-- full name -->
+                                <div class="w-full">
+                                    <label class="block text-sm font-medium text-white  mb-1">
+                                        Full Name
+                                    </label>
+                                    <input type="text" placeholder="Your Stage Name / Real Name"
+                                        class="w-full rounded-md placeholder:text-[#A59E9E] placeholder:text-xs px-4 py-1 focus:outline-none focus:ring-1 focus:ring-[#7D27CE] border-2 border-[#4B4545]"
+                                        id="full-name" name="full-name" disabled required />
+                                </div>
+                                <!-- Phone / whatsapp -->
+                                <div class="w-full">
+                                    <label for="phone" class="block text-sm font-medium text-white  mb-1">
+                                        Phone / WhatsApp
+                                    </label>
+                                    <div class="flex">
+                                        <label for="country-code" class="hidden">Country code</label><br />
+                                        <select id="country-code" name="country-code" aria-label="Country code"
+                                            aria-required="true" disabled
+                                            class="w-fit mr-1 rounded-md placeholder:text-[#A59E9E] placeholder:text-xs px-1 py-1 focus:outline-none focus:ring-1 focus:ring-[#7D27CE] border-2 border-[#4B4545]">
+                                            <option value="+91" selected>🇮🇳 +91</option>
+                                        </select>
+                                        <input type="tel" placeholder="98xxxxxxx10"
+                                            class="w-full rounded-md placeholder:text-[#A59E9E] placeholder:text-xs px-4 py-1 focus:outline-none focus:ring-1 focus:ring-[#7D27CE] border-2 border-[#4B4545]"
+                                            id="phone" name="phone" inputmode="numeric" maxlength="10" minlength="10"
+                                            aria-describedby="phoneHelp" disabled required />
+                                        <p id="phoneHelp" class="sr-only">
+                                            Enter a valid 10-digit Indian mobile number starting with 6, 7, 8, or 9.
+                                        </p>
+                                    </div>
+                                </div>
+                                <!-- Email -->
+                                <div class="w-full">
+                                    <label class="block text-sm font-medium text-white  mb-1">
+                                        Email
+                                    </label>
+                                    <input type="email" placeholder="you@example.com"
+                                        class="w-full rounded-md placeholder:text-[#A59E9E] placeholder:text-xs px-4 py-1 focus:outline-none focus:ring-1 focus:ring-[#7D27CE] border-2 border-[#4B4545]"
+                                        id="email" name="email" required />
+                                </div>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <button type="submit"
+                                class="hidden bg-[#CCAE05] text-[#000000] font-medium px-5 py-1 mt-6 rounded-md hover:text-white hover:bg-[#7D27CE] transition duration-200 inset-shadow-[1.44px_1.44px_1.44px_#716F6F40] shadow-[1.44px_1.44px_1.44px_#716F6F80] cursor-pointer"
+                                id="basicInfoEditBtn" name="basicInfoEditBtn">
+                                Continue
+                            </button>
+                        </form>
+
+                        <!-- profile-details form -->
+                        <form id="profileForm" class="w-full" action="#" method="POST">
+                            <!-- form grid container -->
+                            <div class="grid gap-6">
+                                <!-- Category-->
+                                <div class="w-full">
+                                    <label for="categories" class="block text-sm font-medium text-white  mb-1">
+                                        Category
+                                    </label>
+                                    <div id="categoryGrid" class="flex flex-wrap gap-3">
+                                    </div>
+                                </div>
+
+                                <!-- Base city -->
+                                <div class="w-full">
+                                    <label for="base-city" class="block text-sm font-medium text-white  mb-1">
+                                        Base city
+                                    </label>
+                                    <select id="base-city-select" name="base-city-select" aria-label="base-city-select"
+                                        aria-required="true" required
+                                        class="w-full rounded-md px-1 py-1 focus:outline-none focus:ring-1 focus:ring-[#7D27CE] border-2 border-[#4B4545] ::before">
+                                        <option value="" disabled selected hidden>Pune, Mumbai, Bengaluru.......
+                                        </option>
+                                    </select>
+                                </div>
+
+                                <!-- Experience -->
+                                <div class="w-full">
+                                    <label for="experience-select" class="block text-sm font-medium text-white  mb-1">
+                                        Experience
+                                    </label>
+                                    <select id="experience-select" name="experience-select"
+                                        aria-label="experience-select" aria-required="true" required
+                                        class="w-full rounded-md px-1 py-1 focus:outline-none focus:ring-1 focus:ring-[#7D27CE] border-2 border-[#4B4545] ::before">
+                                    </select>
+                                </div>
+
+                                <!-- Gallery image -->
+                                 <div>
+                                <form id="upload-galley-imgs-form" action="#" method="post"
+                                    enctype="multipart/form-data" class="flex gap-2">
+                                    <div class="">
+                                        <label for="gallery-images" class="block text-sm font-medium text-white  mb-1">
+                                            Gallery image
+                                        </label>
+                                        <input type="text" placeholder="Upload 5-6 strong gallery shots."
+                                            class="w-full rounded-md placeholder:text-[#A59E9E] placeholder:text-xs px-4 py-1 focus:outline-none focus:ring-1 focus:ring-[#7D27CE] border-2 border-[#4B4545]"
+                                            id="gallery-images" name="gallery-images" required />
+                                    </div>
+                                    <!-- Submit Button -->
+                                    <button type="submit"
+                                        class="bg-[#CCAE05] text-[#000000] font-medium px-5 py-1 mt-6 rounded-md hover:text-white hover:bg-[#7D27CE] transition duration-200 inset-shadow-[1.44px_1.44px_1.44px_#716F6F40] shadow-[1.44px_1.44px_1.44px_#716F6F80] cursor-pointer"
+                                        id="uploadgalleryImgBtn" name="uploadgalleryImgBtn">
+                                        Login
+                                    </button>
+                                </form>
+                                </div>
+                            </div>
+                            <!-- Submit Button -->
+                            <button type="submit"
+                                class="bg-[#CCAE05] text-[#000000] font-medium px-5 py-1 mt-6 rounded-md hover:text-white hover:bg-[#7D27CE] transition duration-200 inset-shadow-[1.44px_1.44px_1.44px_#716F6F40] shadow-[1.44px_1.44px_1.44px_#716F6F80] cursor-pointer"
+                                id="submitBtn" name="submitBtn">
+                                Login
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- profile img preview -->
+                    <div class="md:order-first flex flex-col-reverse md:flex-col items-center gap-6 md:p-10 lg:p-0">
+                        <img src="/assets/images/placeholders/profile-preview-placeholder.webp"
+                            alt="Profile preview placeholder" loading="lazy" width="400" height="400"
+                            class="rounded-2xl">
+                        <div class="flex flex-col gap-6">
+                            <!-- artist-info-and-name item-2 -->
+                            <div class="flex flex-col self-start">
+                                <p class="max-w-xl lg:max-w-5xl font-light text-[#928A8A]">
+                                    Artist Name
+                                </p>
+                                <p class="text-sm text-[#928A8A]">Category • Base city</p>
+                            </div>
+                            <!-- bio -->
+                            <p class="max-w-md lg:max-w-lg font-light text-sm md:text-base text-[#928A8A] self-start">
+                                Your bio will appear here. Keep it crisp and bookable.
+                            </p>
+                            <!-- tags -->
+                            <p class="max-w-md lg:max-w-lg font-light text-sm md:text-base text-[#928A8A] self-start">
+                                tags
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- gallery imgs preview -->
+                    <div class="flex flex-col justify-start items-center md:items-start gap-6">
+
+                        <!-- sub-flex of gallery imgs -->
+                        <div class="flex justify-center flex-wrap gap-6">
+                            <img src="/assets/images/placeholders/gallery-preview-placeholder.webp"
+                                alt="Gallery-img preview placeholder" loading="lazy" width="125" height="125"
+                                class="rounded-2xl">
+                            <img src="/assets/images/placeholders/gallery-preview-placeholder.webp"
+                                alt="Gallery-img preview placeholder" loading="lazy" width="120" height="120"
+                                class="rounded-2xl">
+                            <img src="/assets/images/placeholders/gallery-preview-placeholder.webp"
+                                alt="Gallery-img preview placeholder" loading="lazy" width="120" height="120"
+                                class="rounded-2xl">
+                            <img src="/assets/images/placeholders/gallery-preview-placeholder.webp"
+                                alt="Gallery-img preview placeholder" loading="lazy" width="120" height="120"
+                                class="rounded-2xl">
+                            <img src="/assets/images/placeholders/gallery-preview-placeholder.webp"
+                                alt="Gallery-img preview placeholder" loading="lazy" width="120" height="120"
+                                class="rounded-2xl">
+                            <img src="/assets/images/placeholders/gallery-preview-placeholder.webp"
+                                alt="Gallery-img preview placeholder" loading="lazy" width="120" height="120"
+                                class="rounded-2xl">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- footer -->
+    <footer
+        class="max-w-[1600px] mx-auto bg-[#3A3A3A] py-1 px-1 md:px-3 lg:px-17 lg:py-6 font-medium w-full text-sm flex flex-col justify-center items-center">
+        <h6 class="text-[#EAEAEA] font-semibold text-center">© 2025 Laugh & Vibe. All rights reserved.</h6>
+        <p class="text-[#9A9292] text-xs font-semibold text-center">Comedy • Music • Corporate • Private Events</p>
+    </footer>
+
+    <!-- js -->
+    <script src="./env.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="./supabaseClient.js"></script>
+    <script src="./profile-form.js" defer></script>
+</body>
+</body>
+
+</html>
