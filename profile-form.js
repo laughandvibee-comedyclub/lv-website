@@ -1,6 +1,6 @@
 const supabaseClient = window.supabaseClient;
 
-const grid = document.getElementById("categoryGrid");
+const categoryGrid = document.getElementById("categoryGrid");
 const form = document.getElementById("profileForm");
 const errorMsg = document.getElementById("errorMsg");
 const successMsg = document.getElementById("successMsg");
@@ -12,7 +12,7 @@ let saving = false;
    LOAD CATEGORIES UI
 -------------------------- */
 async function loadInterface() {
-  grid.innerHTML = "";
+  categoryGrid.innerHTML = "";
 
   // get session user
   const { data: { session } } =
@@ -68,7 +68,7 @@ async function loadInterface() {
       </label>
     `;
 
-    grid.appendChild(wrapper);
+    categoryGrid.appendChild(wrapper);
   });
 }
 

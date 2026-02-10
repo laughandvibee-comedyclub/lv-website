@@ -192,7 +192,7 @@
                             <div class="grid gap-6">
                                 <!-- Category-->
                                 <div class="w-full">
-                                    <label for="categories" class="block text-sm font-medium text-white  mb-1">
+                                    <label class="block text-sm font-medium text-white  mb-1">
                                         Category
                                     </label>
                                     <div id="categoryGrid" class="flex flex-wrap gap-3">
@@ -223,32 +223,132 @@
                                     </select>
                                 </div>
 
+                                <!-- Profile image -->
+                                <div>
+                                    <form id="uploadProfileImgForm" action="#" method="post"
+                                        enctype="multipart/form-data" class="w-full">
+                                        <label for="profile-img" class="block text-sm font-medium text-white  mb-1">
+                                            Profile image
+                                        </label>
+                                        <div class="flex flex-col gap-3 lg:flex-row justify-between">
+                                            <!-- Submit Button -->
+                                            <button type="submit"
+                                                class="w-fit sm:whitespace-nowrap bg-[#D9D9D9] text-[#393636] font-medium px-5 py-1 rounded-md hover:bg-[#D9D9D9CC] transition duration-200 inset-shadow-[1.44px_1.44px_1.44px_#716F6F40] shadow-[1.44px_1.44px_1.44px_#716F6F80] cursor-pointer"
+                                                id="uploadProfileImgBtn" name="uploadProfileImgBtn">
+                                                Upload Image
+                                            </button>
+                                            <!-- input url -->
+                                            <input type="text" placeholder="Upload profile image."
+                                                class="w-full rounded-md placeholder:text-[#A59E9E] placeholder:text-xs px-4 py-1 focus:outline-none focus:ring-1 focus:ring-[#7D27CE] border-2 border-[#4B4545]"
+                                                id="profile-img" name="profile-img" required />
+
+                                        </div>
+                                    </form>
+                                </div>
+
                                 <!-- Gallery image -->
-                                 <div>
-                                <form id="upload-galley-imgs-form" action="#" method="post"
-                                    enctype="multipart/form-data" class="flex gap-2">
-                                    <div class="">
+                                <div>
+                                    <form id="upload-galley-imgs-form" action="#" method="post"
+                                        enctype="multipart/form-data" class="w-full">
                                         <label for="gallery-images" class="block text-sm font-medium text-white  mb-1">
                                             Gallery image
                                         </label>
-                                        <input type="text" placeholder="Upload 5-6 strong gallery shots."
-                                            class="w-full rounded-md placeholder:text-[#A59E9E] placeholder:text-xs px-4 py-1 focus:outline-none focus:ring-1 focus:ring-[#7D27CE] border-2 border-[#4B4545]"
-                                            id="gallery-images" name="gallery-images" required />
+                                        <div class="flex flex-col gap-3 lg:flex-row justify-between">
+                                            <!-- input url -->
+                                            <input type="text" placeholder="Upload 5-6 strong gallery shots."
+                                                class="w-full rounded-md placeholder:text-[#A59E9E] placeholder:text-xs px-4 py-1 focus:outline-none focus:ring-1 focus:ring-[#7D27CE] border-2 border-[#4B4545]"
+                                                id="gallery-images" name="gallery-images" required />
+                                            <!-- Submit Button -->
+                                            <button type="submit"
+                                                class="w-fit sm:whitespace-nowrap bg-[#D9D9D9] text-[#393636] font-medium px-5 py-1 rounded-md hover:bg-[#D9D9D9CC] transition duration-200 inset-shadow-[1.44px_1.44px_1.44px_#716F6F40] shadow-[1.44px_1.44px_1.44px_#716F6F80] cursor-pointer"
+                                                id="uploadgalleryImgBtn" name="uploadgalleryImgBtn">
+                                                Upload Images
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <!-- portfolio link -->
+                                <div class="w-full">
+                                    <label class="block text-sm font-medium text-white  mb-1">
+                                        Portfolio link
+                                    </label>
+                                    <input type="text" placeholder="Website / Linktree / Drive / Youtube playlist"
+                                        class="w-full rounded-md placeholder:text-[#A59E9E] placeholder:text-xs px-4 py-1 focus:outline-none focus:ring-1 focus:ring-[#7D27CE] border-2 border-[#4B4545]"
+                                        id="portfolio-link" name="portfolio-link" />
+                                </div>
+
+                                <!-- Instagram link -->
+                                <div class="w-full">
+                                    <label class="block text-sm font-medium text-white  mb-1">
+                                        Instagram
+                                    </label>
+                                    <input type="text" placeholder="https://www.instagram.com/......"
+                                        class="w-full rounded-md placeholder:text-[#A59E9E] placeholder:text-xs px-4 py-1 focus:outline-none focus:ring-1 focus:ring-[#7D27CE] border-2 border-[#4B4545]"
+                                        id="instagram-link" name="instagram-link" />
+                                </div>
+
+                                <!-- YouTube link -->
+                                <div class="w-full">
+                                    <label class="block text-sm font-medium text-white  mb-1">
+                                        YouTube
+                                    </label>
+                                    <input type="text" placeholder="https://www.youtube.com/......"
+                                        class="w-full rounded-md placeholder:text-[#A59E9E] placeholder:text-xs px-4 py-1 focus:outline-none focus:ring-1 focus:ring-[#7D27CE] border-2 border-[#4B4545]"
+                                        id="youtube-link" name="youtube-link" />
+                                </div>
+
+                                <!-- Bio -->
+                                <div class="w-full">
+                                    <label class="block text-sm font-medium text-white  mb-1">
+                                        Bio
+                                    </label>
+                                    <textarea name="bio" id="bio" rows="4"
+                                        placeholder="Write 3-5 lines about what you do, your style, and what kind of events you’re great at."
+                                        class="w-full rounded-md placeholder:text-[#A59E9E] placeholder:text-xs px-4 py-1 focus:outline-none focus:ring-1 focus:ring-[#7D27CE] border-2 border-[#4B4545]"></textarea>
+                                </div>
+
+                                <!-- Languages-->
+                                <div class="w-full">
+                                    <label class="block text-sm font-medium text-white  mb-1">
+                                        Languages
+                                    </label>
+                                    <div id="languagesGrid" class="flex flex-wrap gap-3">
                                     </div>
-                                    <!-- Submit Button -->
-                                    <button type="submit"
-                                        class="bg-[#CCAE05] text-[#000000] font-medium px-5 py-1 mt-6 rounded-md hover:text-white hover:bg-[#7D27CE] transition duration-200 inset-shadow-[1.44px_1.44px_1.44px_#716F6F40] shadow-[1.44px_1.44px_1.44px_#716F6F80] cursor-pointer"
-                                        id="uploadgalleryImgBtn" name="uploadgalleryImgBtn">
-                                        Login
-                                    </button>
-                                </form>
+                                </div>
+
+                                <!-- Performance types-->
+                                <div class="w-full">
+                                    <label class="block text-sm font-medium text-white  mb-1">
+                                        Performance types
+                                    </label>
+                                    <div id="PerformanceTypesGrid" class="flex flex-wrap gap-3">
+                                    </div>
+                                </div>
+
+                                <!-- Audience Range-->
+                                <div class="w-full">
+                                    <label class="block text-sm font-medium text-white  mb-1">
+                                        Audience Range
+                                    </label>
+                                    <div id="AudienceRangeGrid" class="flex flex-wrap gap-3">
+                                    </div>
+                                </div>
+
+                                <!-- Availability-->
+                                <div class="w-full">
+                                    <label class="block text-sm font-medium text-white  mb-1">
+                                        Availability
+                                    </label>
+                                    <div id="AvailabilityGrid" class="flex flex-wrap gap-3">
+                                    </div>
                                 </div>
                             </div>
                             <!-- Submit Button -->
                             <button type="submit"
-                                class="bg-[#CCAE05] text-[#000000] font-medium px-5 py-1 mt-6 rounded-md hover:text-white hover:bg-[#7D27CE] transition duration-200 inset-shadow-[1.44px_1.44px_1.44px_#716F6F40] shadow-[1.44px_1.44px_1.44px_#716F6F80] cursor-pointer"
+                                class="w-fit ml-auto bg-[#CCAE05] text-[#000000] font-medium px-5 py-1 mt-6 rounded-md hover:text-white hover:bg-[#7D27CE] transition duration-200 inset-shadow-[1.44px_1.44px_1.44px_#716F6F40] shadow-[1.44px_1.44px_1.44px_#716F6F80] cursor-pointer"
                                 id="submitBtn" name="submitBtn">
-                                Login
+                                Save & Submit
                             </button>
                         </form>
                     </div>
