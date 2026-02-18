@@ -71,7 +71,7 @@
                     <a href="../artists.html">Artists</a>
                 </div>
                 <div class="w-full lg:w-fit py-4 text-center">
-                    <a href="../index.html#inside-the-room">Gallery</a>
+                    <a href="../../index.html#inside-the-room">Gallery</a>
                 </div>
                 <div class="w-full lg:w-fit py-4 text-center">
                     <a href="../studio-rental.html">Studio Rental</a>
@@ -114,11 +114,14 @@
                             to the roster.
                         </p>
                         <!-- artist-id item-2 -->
-                        <div class="flex flex-col">
-                            <p class="max-w-xl lg:max-w-5xl font-light pt-6 pb-1 text-[#D9D9D9]">
+                        <div class="flex flex-col gap-2">
+                            <p class="max-w-xl lg:max-w-5xl font-light text-[#D9D9D9]">
                                 Artist ID
                             </p>
-                            <p class="uppercase text-sm text-[#4B4545]">auto-generated</p>
+                            <p id="artistCode" class="uppercase text-sm text-[#4B4545] -mt-1">auto-generated</p>
+                            <button
+                                class="cursor-pointer text-sm bg-[#D9D9D9] text-[#393636] font-medium px-5 py-1 rounded-md hover:bg-[#D9D9D9CC] transition duration-200"
+                                id="logoutBtn">Logout</button>
                         </div>
                     </div>
                 </div>
@@ -143,8 +146,8 @@
                                         Full Name
                                     </label>
                                     <input type="text" placeholder="Your Stage Name / Real Name"
-                                        class="w-full rounded-md placeholder:text-[#A59E9E] placeholder:text-xs px-4 py-1 focus:outline-none focus:ring-1 focus:ring-[#7D27CE] border-2 border-[#4B4545]"
-                                        id="full-name" name="full-name" disabled required />
+                                        class="w-full rounded-md capitalize placeholder:text-[#A59E9E] placeholder:text-xs px-4 py-1 focus:outline-none focus:ring-1 border-2 border-[#4B4545]"
+                                        id="full-name" name="full-name" disabled />
                                 </div>
                                 <!-- Phone / whatsapp -->
                                 <div class="w-full">
@@ -159,9 +162,9 @@
                                             <option value="+91" selected>🇮🇳 +91</option>
                                         </select>
                                         <input type="tel" placeholder="98xxxxxxx10"
-                                            class="w-full rounded-md placeholder:text-[#A59E9E] placeholder:text-xs px-4 py-1 focus:outline-none focus:ring-1 focus:ring-[#7D27CE] border-2 border-[#4B4545]"
+                                            class="w-full rounded-md placeholder:text-[#A59E9E] placeholder:text-xs px-4 py-1 focus:outline-none focus:ring-1 border-2 border-[#4B4545]"
                                             id="phone" name="phone" inputmode="numeric" maxlength="10" minlength="10"
-                                            aria-describedby="phoneHelp" disabled required />
+                                            aria-describedby="phoneHelp" disabled />
                                         <p id="phoneHelp" class="sr-only">
                                             Enter a valid 10-digit Indian mobile number starting with 6, 7, 8, or 9.
                                         </p>
@@ -173,8 +176,8 @@
                                         Email
                                     </label>
                                     <input type="email" placeholder="you@example.com"
-                                        class="w-full rounded-md placeholder:text-[#A59E9E] placeholder:text-xs px-4 py-1 focus:outline-none focus:ring-1 focus:ring-[#7D27CE] border-2 border-[#4B4545]"
-                                        id="email" name="email" required />
+                                        class="w-full rounded-md placeholder:text-[#A59E9E] placeholder:text-xs px-4 py-1 focus:outline-none focus:ring-1 border-2 border-[#4B4545]"
+                                        id="email" name="email" disabled />
                                 </div>
                             </div>
 
@@ -201,13 +204,14 @@
 
                                 <!-- Base city -->
                                 <div class="w-full">
-                                    <label for="base-city" class="block text-sm font-medium text-white  mb-1">
+                                    <label for="base-city-select" class="block text-sm font-medium text-white  mb-1">
                                         Base city
                                     </label>
                                     <select id="base-city-select" name="base-city-select" aria-label="base-city-select"
-                                        aria-required="true" required
+                                        aria-required="true"
                                         class="w-full rounded-md px-1 py-1 focus:outline-none focus:ring-1 focus:ring-[#7D27CE] border-2 border-[#4B4545] ::before">
-                                        <option value="" disabled selected hidden>Pune, Mumbai, Bengaluru.......
+                                        <option class="capitalize text-white text-sm" value="" disabled selected hidden>
+                                            Pune, Mumbai, Bengaluru.......
                                         </option>
                                     </select>
                                 </div>
@@ -218,54 +222,49 @@
                                         Experience
                                     </label>
                                     <select id="experience-select" name="experience-select"
-                                        aria-label="experience-select" aria-required="true" required
+                                        aria-label="experience-select" aria-required="true"
                                         class="w-full rounded-md px-1 py-1 focus:outline-none focus:ring-1 focus:ring-[#7D27CE] border-2 border-[#4B4545] ::before">
                                     </select>
                                 </div>
 
                                 <!-- Profile image -->
-                                <div>
-                                    <form id="uploadProfileImgForm" action="#" method="post"
-                                        enctype="multipart/form-data" class="w-full">
-                                        <label for="profile-img" class="block text-sm font-medium text-white  mb-1">
-                                            Profile image
-                                        </label>
-                                        <div class="flex flex-col gap-3 lg:flex-row justify-between">
-                                            <!-- Submit Button -->
-                                            <button type="submit"
-                                                class="w-fit sm:whitespace-nowrap bg-[#D9D9D9] text-[#393636] font-medium px-5 py-1 rounded-md hover:bg-[#D9D9D9CC] transition duration-200 inset-shadow-[1.44px_1.44px_1.44px_#716F6F40] shadow-[1.44px_1.44px_1.44px_#716F6F80] cursor-pointer"
-                                                id="uploadProfileImgBtn" name="uploadProfileImgBtn">
-                                                Upload Image
-                                            </button>
-                                            <!-- input url -->
-                                            <input type="text" placeholder="Upload profile image."
-                                                class="w-full rounded-md placeholder:text-[#A59E9E] placeholder:text-xs px-4 py-1 focus:outline-none focus:ring-1 focus:ring-[#7D27CE] border-2 border-[#4B4545]"
-                                                id="profile-img" name="profile-img" required />
-
-                                        </div>
-                                    </form>
+                                <div class="w-full">
+                                    <label for="profileImgInput" class="block text-sm font-medium text-white  mb-1">
+                                        Profile image
+                                    </label>
+                                    <div class="flex flex-col gap-3 lg:flex-row justify-between">
+                                        <!-- Submit Button -->
+                                        <button type="button"
+                                            class="w-fit sm:whitespace-nowrap bg-[#D9D9D9] text-[#393636] font-medium px-5 py-1 rounded-md hover:bg-[#D9D9D9CC] transition duration-200 inset-shadow-[1.44px_1.44px_1.44px_#716F6F40] shadow-[1.44px_1.44px_1.44px_#716F6F80] cursor-pointer"
+                                            id="uploadProfileImgBtn" name="uploadProfileImgBtn">
+                                            Upload Image
+                                        </button>
+                                        <!-- input url -->
+                                        <input type="file" accept="image/*" placeholder="Upload profile image."
+                                            class="w-full rounded-md placeholder:text-[#A59E9E] placeholder:text-xs px-4 py-1 focus:outline-none focus:ring-1 focus:ring-[#7D27CE] border-2 border-[#4B4545]"
+                                            id="profileImgInput" name="profileImgInput" />
+                                    </div>
                                 </div>
 
                                 <!-- Gallery image -->
-                                <div>
-                                    <form id="upload-galley-imgs-form" action="#" method="post"
-                                        enctype="multipart/form-data" class="w-full">
-                                        <label for="gallery-images" class="block text-sm font-medium text-white  mb-1">
-                                            Gallery image
-                                        </label>
-                                        <div class="flex flex-col gap-3 lg:flex-row justify-between">
-                                            <!-- input url -->
-                                            <input type="text" placeholder="Upload 5-6 strong gallery shots."
-                                                class="w-full rounded-md placeholder:text-[#A59E9E] placeholder:text-xs px-4 py-1 focus:outline-none focus:ring-1 focus:ring-[#7D27CE] border-2 border-[#4B4545]"
-                                                id="gallery-images" name="gallery-images" required />
-                                            <!-- Submit Button -->
-                                            <button type="submit"
-                                                class="w-fit sm:whitespace-nowrap bg-[#D9D9D9] text-[#393636] font-medium px-5 py-1 rounded-md hover:bg-[#D9D9D9CC] transition duration-200 inset-shadow-[1.44px_1.44px_1.44px_#716F6F40] shadow-[1.44px_1.44px_1.44px_#716F6F80] cursor-pointer"
-                                                id="uploadgalleryImgBtn" name="uploadgalleryImgBtn">
-                                                Upload Images
-                                            </button>
-                                        </div>
-                                    </form>
+                                <div class="w-full">
+                                    <p id="galleryUploadHint" class="text-xs text-[#928A8A] mb-1"></p>
+                                    <label for="galleryImgInput" class="block text-sm font-medium text-white  mb-1">
+                                        Gallery image
+                                    </label>
+                                    <div class="flex flex-col gap-3 lg:flex-row justify-between">
+                                        <!-- input url -->
+                                        <input type="file" accept="image/*"
+                                            placeholder="Upload 5-6 strong gallery shots."
+                                            class="w-full rounded-md placeholder:text-[#A59E9E] placeholder:text-xs px-4 py-1 focus:outline-none focus:ring-1 focus:ring-[#7D27CE] border-2 border-[#4B4545]"
+                                            id="galleryImgInput" name="galleryImgInput" />
+                                        <!-- Submit Button -->
+                                        <button type="button"
+                                            class="w-fit sm:whitespace-nowrap bg-[#D9D9D9] text-[#393636] font-medium px-5 py-1 rounded-md hover:bg-[#D9D9D9CC] transition duration-200 inset-shadow-[1.44px_1.44px_1.44px_#716F6F40] shadow-[1.44px_1.44px_1.44px_#716F6F80] cursor-pointer"
+                                            id="uploadgalleryImgBtn" name="uploadgalleryImgBtn">
+                                            Upload Images
+                                        </button>
+                                    </div>
                                 </div>
 
                                 <!-- portfolio link -->
@@ -313,7 +312,7 @@
                                     <label class="block text-sm font-medium text-white  mb-1">
                                         Languages
                                     </label>
-                                    <div id="languagesGrid" class="flex flex-wrap gap-3">
+                                    <div id="languageGrid" class="flex flex-wrap gap-3">
                                     </div>
                                 </div>
 
@@ -322,17 +321,19 @@
                                     <label class="block text-sm font-medium text-white  mb-1">
                                         Performance types
                                     </label>
-                                    <div id="PerformanceTypesGrid" class="flex flex-wrap gap-3">
+                                    <div id="performanceGrid" class="flex flex-wrap gap-3">
                                     </div>
                                 </div>
 
-                                <!-- Audience Range-->
+                                <!-- Audience Range -->
                                 <div class="w-full">
-                                    <label class="block text-sm font-medium text-white  mb-1">
+                                    <label for="audience-select" class="block text-sm font-medium text-white  mb-1">
                                         Audience Range
                                     </label>
-                                    <div id="AudienceRangeGrid" class="flex flex-wrap gap-3">
-                                    </div>
+                                    <select id="audience-select" name="audience-select" aria-label="audience-select"
+                                        aria-required="true"
+                                        class="w-full rounded-md px-1 py-1 focus:outline-none focus:ring-1 focus:ring-[#7D27CE] border-2 border-[#4B4545] ::before">
+                                    </select>
                                 </div>
 
                                 <!-- Availability-->
@@ -340,7 +341,7 @@
                                     <label class="block text-sm font-medium text-white  mb-1">
                                         Availability
                                     </label>
-                                    <div id="AvailabilityGrid" class="flex flex-wrap gap-3">
+                                    <div id="availabilityGrid" class="flex flex-wrap gap-3">
                                     </div>
                                 </div>
                             </div>
@@ -353,21 +354,32 @@
                         </form>
                     </div>
 
-                    <!-- profile img preview -->
-                    <div class="md:order-first flex flex-col-reverse md:flex-col items-center gap-6 md:p-10 lg:p-0">
-                        <img src="/assets/images/placeholders/profile-preview-placeholder.webp"
-                            alt="Profile preview placeholder" loading="lazy" width="400" height="400"
-                            class="rounded-2xl">
-                        <div class="flex flex-col gap-6">
+                    <!-- imgs preview -->
+                    <div class="md:order-first flex flex-col items-center gap-6 md:p-10 lg:p-0">
+                        <!-- profile img preview -->
+                        <div class="relative">
+                            <img id="profileImagePreview"
+                                src="/assets/images/placeholders/profile-preview-placeholder.webp"
+                                alt="Profile preview placeholder" loading="lazy" width="400" height="400"
+                                class="rounded-2xl object-cover" />
+
+                            <button id="deleteProfileBtn"
+                                class="hidden cursor-pointer absolute -top-2 -right-2 bg-black text-white w-6 h-6 rounded-full text-xs">
+                                ✕
+                            </button>
+                        </div>
+                        <div class="flex flex-col gap-6 items-start text-left w-full">
                             <!-- artist-info-and-name item-2 -->
                             <div class="flex flex-col self-start">
-                                <p class="max-w-xl lg:max-w-5xl font-light text-[#928A8A]">
+                                <p id="namePreview" class="max-w-xl lg:max-w-5xl font-light text-[#928A8A] capitalize">
                                     Artist Name
                                 </p>
-                                <p class="text-sm text-[#928A8A]">Category • Base city</p>
+                                <p class="text-sm text-[#928A8A]"><span id="categoryPreview">Category</span> •
+                                    <span id="cityPreview" class="capitalize">Base city</span></p>
                             </div>
                             <!-- bio -->
-                            <p class="max-w-md lg:max-w-lg font-light text-sm md:text-base text-[#928A8A] self-start">
+                            <p id="bioPreview"
+                                class="max-w-md lg:max-w-lg font-light text-sm md:text-base text-[#928A8A] self-start">
                                 Your bio will appear here. Keep it crisp and bookable.
                             </p>
                             <!-- tags -->
@@ -375,31 +387,74 @@
                                 tags
                             </p>
                         </div>
-                    </div>
-
-                    <!-- gallery imgs preview -->
-                    <div class="flex flex-col justify-start items-center md:items-start gap-6">
-
                         <!-- sub-flex of gallery imgs -->
                         <div class="flex justify-center flex-wrap gap-6">
-                            <img src="/assets/images/placeholders/gallery-preview-placeholder.webp"
-                                alt="Gallery-img preview placeholder" loading="lazy" width="125" height="125"
-                                class="rounded-2xl">
-                            <img src="/assets/images/placeholders/gallery-preview-placeholder.webp"
-                                alt="Gallery-img preview placeholder" loading="lazy" width="120" height="120"
-                                class="rounded-2xl">
-                            <img src="/assets/images/placeholders/gallery-preview-placeholder.webp"
-                                alt="Gallery-img preview placeholder" loading="lazy" width="120" height="120"
-                                class="rounded-2xl">
-                            <img src="/assets/images/placeholders/gallery-preview-placeholder.webp"
-                                alt="Gallery-img preview placeholder" loading="lazy" width="120" height="120"
-                                class="rounded-2xl">
-                            <img src="/assets/images/placeholders/gallery-preview-placeholder.webp"
-                                alt="Gallery-img preview placeholder" loading="lazy" width="120" height="120"
-                                class="rounded-2xl">
-                            <img src="/assets/images/placeholders/gallery-preview-placeholder.webp"
-                                alt="Gallery-img preview placeholder" loading="lazy" width="120" height="120"
-                                class="rounded-2xl">
+                            <div class="relative gallery-slot">
+                                <img id="galleryImg1" src="/assets/images/placeholders/gallery-preview-placeholder.webp"
+                                    alt="Gallery preview" loading="lazy" width="120" height="120"
+                                    class="rounded-2xl object-cover" />
+
+                                <button
+                                    class="deleteGalleryBtn hidden absolute -top-2 -right-2 bg-black text-white w-6 h-6 rounded-full text-xs"
+                                    data-slot="1">
+                                    ✕
+                                </button>
+                            </div>
+                            <div class="relative gallery-slot">
+                                <img id="galleryImg2" src="/assets/images/placeholders/gallery-preview-placeholder.webp"
+                                    alt="Gallery preview" loading="lazy" width="120" height="120"
+                                    class="rounded-2xl object-cover" />
+
+                                <button
+                                    class="deleteGalleryBtn hidden absolute -top-2 -right-2 bg-black text-white w-6 h-6 rounded-full text-xs"
+                                    data-slot="2">
+                                    ✕
+                                </button>
+                            </div>
+                            <div class="relative gallery-slot">
+                                <img id="galleryImg3" src="/assets/images/placeholders/gallery-preview-placeholder.webp"
+                                    alt="Gallery preview" loading="lazy" width="120" height="120"
+                                    class="rounded-2xl object-cover" />
+
+                                <button
+                                    class="deleteGalleryBtn hidden absolute -top-2 -right-2 bg-black text-white w-6 h-6 rounded-full text-xs"
+                                    data-slot="3">
+                                    ✕
+                                </button>
+                            </div>
+                            <div class="relative gallery-slot">
+                                <img id="galleryImg4" src="/assets/images/placeholders/gallery-preview-placeholder.webp"
+                                    alt="Gallery preview" loading="lazy" width="120" height="120"
+                                    class="rounded-2xl object-cover" />
+
+                                <button
+                                    class="deleteGalleryBtn hidden absolute -top-2 -right-2 bg-black text-white w-6 h-6 rounded-full text-xs"
+                                    data-slot="4">
+                                    ✕
+                                </button>
+                            </div>
+                            <div class="relative gallery-slot">
+                                <img id="galleryImg5" src="/assets/images/placeholders/gallery-preview-placeholder.webp"
+                                    alt="Gallery preview" loading="lazy" width="120" height="120"
+                                    class="rounded-2xl object-cover" />
+
+                                <button
+                                    class="deleteGalleryBtn hidden absolute -top-2 -right-2 bg-black text-white w-6 h-6 rounded-full text-xs"
+                                    data-slot="5">
+                                    ✕
+                                </button>
+                            </div>
+                            <div class="relative gallery-slot">
+                                <img id="galleryImg6" src="/assets/images/placeholders/gallery-preview-placeholder.webp"
+                                    alt="Gallery preview" loading="lazy" width="120" height="120"
+                                    class="rounded-2xl object-cover" />
+
+                                <button
+                                    class="deleteGalleryBtn hidden absolute -top-2 -right-2 bg-black text-white w-6 h-6 rounded-full text-xs"
+                                    data-slot="6">
+                                    ✕
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -418,6 +473,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="./supabaseClient.js"></script>
     <script src="./profile-form.js" defer></script>
+    <script src="./upload-delete-images.js" defer></script>
 </body>
 </body>
 
