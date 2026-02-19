@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laugh and Vibe | Artist Signup</title>
+    <link rel="stylesheet" href="../output.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body class="text-[#FFEFEF] font-poppins scroll-smooth">
+    <!-- header -->
+    <header class="max-w-[1600px] mx-auto bg-black py-1 px-1 md:px-3 lg:px-17 lg:py-6 font-medium w-full">
+        <!-- header-main-flex container -->
+        <div class=" flex flex-col items-center lg:flex-row justify-between">
+            <!-- input -->
+            <input class="hidden peer" type="checkbox" name="menu-checkbox" id="menu-checkbox"
+                area-labelledby="hamburger-icon close-icon">
+            <!-- logo -->
+            <div class="flex items-center w-full lg:w-fit ">
+                <a href="../../index.html"
+                    class="flex items-center lg:w-fit max-lg:py-1 lg:flex-col lg:items-start xl:flex-row xl:items-center">
+                    <img src="../../assets/images/home/logo.png" alt="laugh-and-vibe-logo" class="size-14">
+                    <span class="hidden md:block pl-4 text-xs lg:pl-0 xl:pl-4">Laugh and Vibe</span>
+                </a>
+            </div>
+
+            <!-- labels for input -->
+            <label id="hamburger-icon"
+                class="peer-checked:hidden absolute top-4 right-3 transition-all duration-300 ease-in-out lg:hidden"
+                for="menu-checkbox">
+                <svg class="cursor-pointer" xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960"
+                    width="40px" fill="#FFEFEF">
+                    <path
+                        d="M120-240v-66.67h720V-240H120Zm0-206.67v-66.66h720v66.66H120Zm0-206.66V-720h720v66.67H120Z" />
+                </svg>
+            </label>
+            <label id="close-icon"
+                class="hidden peer-checked:block absolute top-4 right-3 transition-all duration-300 ease-in-out lg:peer-checked:hidden lg:hidden"
+                for="menu-checkbox">
+                <svg class="cursor-pointer" xmlns="http://www .w3.org/2000/svg" height="40px" viewBox="0 -960 960 960"
+                    width="40px" fill="#FFEFEF">
+                    <path
+                        d="m251.33-204.67-46.66-46.66L433.33-480 204.67-708.67l46.66-46.66L480-526.67l228.67-228.66 46.66 46.66L526.67-480l228.66 228.67-46.66 46.66L480-433.33 251.33-204.67Z" />
+                </svg>
+            </label>
+
+            <!-- nav links -->
+            <nav
+                class="flex flex-col w-full lg:w-fit divide-y divide-gray-600 lg:divide-y-0 lg:flex-row space-x-2.5 xl:space-x-4 2xl:space-x-8 text-xs flex-wrap max-lg:max-h-0 max-lg:overflow-hidden max-lg:peer-checked:max-h-[600px] transition-all duration-300 ease-in-out">
+                <div class="w-full lg:w-fit py-4 text-center max-lg:border-t border-gray-600">
+                    <a class="" href="../../index.html#">Home</a>
+                </div>
+                <div class="w-full lg:w-fit py-4 text-center">
+                    <a href="../about.html">About</a>
+                </div>
+                <div class="w-full lg:w-fit py-4 text-center">
+                    <a href="../../index.html#our-services-section">Service</a>
+                </div>
+                <div class="w-full lg:w-fit py-4 text-center">
+                    <a href="../shows.html">Shows</a>
+                </div>
+                <div class="w-full lg:w-fit py-4 text-center">
+                    <a href="../for-corporates.html">For Corporates</a>
+                </div>
+                <div class="w-full lg:w-fit py-4 text-center">
+                    <a href="../for-colleges.html">For Colleges</a>
+                </div>
+                <div class="w-full lg:w-fit py-4 text-center">
+                    <a href="../artists.html">Artists</a>
+                </div>
+                <div class="w-full lg:w-fit py-4 text-center">
+                    <a href="../../index.html#inside-the-room">Gallery</a>
+                </div>
+                <div class="w-full lg:w-fit py-4 text-center">
+                    <a href="../studio-rental.html">Studio Rental</a>
+                </div>
+                <div class="w-full lg:w-fit py-4 text-center max-lg:border-b border-gray-600">
+                    <a href="../contact.html">Contact</a>
+                </div>
+            </nav>
+
+            <!-- book tickets button -->
+            <div
+                class="max-lg:max-h-0 max-lg:overflow-hidden max-lg:peer-checked:max-h-[100px] max-lg:peer-checked:my-6 transition-all duration-300 ease-in-out rounded">
+                <a href="https://linktr.ee/laughandvibe" target="_blank"
+                    class="flex justify-center p-3 bg-linear-to-r from-[#9049D3] via-28% via-[#CE5573] via-65% via-[#F35D23] to-[#FFC310] to-100% text-black text-xs text-center rounded-xl lg:my-0">
+                    Book Tickets
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- main -->
+    <main class="max-w-[1600px] mx-auto w-full">
+        <!-- signup section -->
+        <section id="signup-section" class="bg-linear-to-bl from-[#000000] to-[#3C2155] px-1 md:px-3 lg:px-17">
+            <!-- main flex container -->
+            <div
+                class="flex flex-col justify-center items-center md:flex-row md:justify-around md:items-start gap-12 py-16">
+                <!--sub-flex-item-1 container -->
+                <div class="flex flex-col justify-center items-center lg:items-start w-full md:max-w-[500px]">
+                    <div
+                        class="flex gap-2 bg-[#3B3A3A66] text-center text-[#B39A09] font-medium px-6 py-1.5 my-8 rounded-xl inset-shadow-[3.49px_4.66px_4.66px_#716F6F40] shadow-[4.66px_4.66px_6.29px_#716F6F80]">
+                        <!-- svg -->
+                        <svg width="19" height="17" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M7.58333 15C6.68056 15 5.91319 14.6354 5.28125 13.9062C4.64931 13.1771 4.33333 12.2917 4.33333 11.25V3.75C4.33333 2.70833 4.64931 1.82292 5.28125 1.09375C5.91319 0.364583 6.68056 0 7.58333 0C8.48611 0 9.25347 0.364583 9.88542 1.09375C10.5174 1.82292 10.8333 2.70833 10.8333 3.75V11.25C10.8333 12.2917 10.5174 13.1771 9.88542 13.9062C9.25347 14.6354 8.48611 15 7.58333 15ZM6.5 23.75V19.9062C4.62222 19.6146 3.06944 18.6458 1.84167 17C0.613889 15.3542 0 13.4375 0 11.25H2.16667C2.16667 12.9792 2.69479 14.4531 3.75104 15.6719C4.80729 16.8906 6.08472 17.5 7.58333 17.5C9.08194 17.5 10.3594 16.8906 11.4156 15.6719C12.4719 14.4531 13 12.9792 13 11.25H15.1667C15.1667 13.4375 14.5528 15.3542 13.325 17C12.0972 18.6458 10.5444 19.6146 8.66667 19.9062V23.75H6.5ZM7.58333 12.5C7.89028 12.5 8.14757 12.3802 8.35521 12.1406C8.56285 11.901 8.66667 11.6042 8.66667 11.25V3.75C8.66667 3.39583 8.56285 3.09896 8.35521 2.85938C8.14757 2.61979 7.89028 2.5 7.58333 2.5C7.27639 2.5 7.0191 2.61979 6.81146 2.85938C6.60382 3.09896 6.5 3.39583 6.5 3.75V11.25C6.5 11.6042 6.60382 11.901 6.81146 12.1406C7.0191 12.3802 7.27639 12.5 7.58333 12.5Z"
+                                fill="#B39A09" />
+                        </svg>
+                        <p class="uppercase text-sm">Laugh & Vibe • Artist Network</p>
+                    </div>
+                    <!-- h1 heading -->
+                    <h2 class="text-xl leading-12 text-[#E4E4E4] font-semibold text-center lg:text-start lg:text-4xl">
+                        Join as an Artist.<br class="hidden lg:block">Get discovered. Get booked..</h2>
+                    <!-- para -->
+                    <p class="max-w-xl lg:max-w-5xl font-light pt-6 pb-1 max-lg:text-center text-[#DEDBDB]">
+                        Sign up to create your artist profile. After login, you’ll fill your details once and your
+                        profile can be showcased on the Artist roster and your own profile page.
+                    </p>
+                    <!-- img -->
+                    <img class="hidden md:block" src="../../assets/images/auth/login-signup.png"
+                        alt="mike-stand-stool-img">
+                </div>
+
+                <!-- signup form -->
+                <div
+                    class="flex flex-col justify-center items-center lg:justify-self-start lg:items-start w-full min-h-screen p-8 rounded-xl min-[300px]:max-w-full sm:max-w-xl xl:max-w-2xl bg-linear-to-tr from-[#00000066] to-[#544F5666] inset-shadow-[4.51px_6.01px_6.01px_#716F6F40] shadow-[6.01px_6.01px_8.12px_#716F6F80]">
+                    <h1 class="text-2xl text-[#E4E4E4] font-bold text-center lg:text-4xl lg:leading-14">Artist Signup
+                    </h1>
+                    <!-- para -->
+                    <p class="max-w-5xl font-light p-1 max-lg:text-center text-[#DEDBDB] text-xs md:text-base">
+                        Create an account to build your public artist profile.
+                    </p>
+                    <!-- highlights -->
+                    <div
+                        class="flex items-center gap-2 w-full bg-linear-to-tr from-[#00000099] to-[#2D272E99] text-center text-[#D9D9D9] font-light px-1.5 py-3.5 mt-4 mb-6 rounded-md inset-shadow-[2px_3px_2px_#312F2F1A] shadow-[2px_3px_2px_#36343440]">
+                        <p class="uppercase text-sm">🎤 Comics • 🎶 Singers • 🎸 Bands • 🪄 Magicians • 📝 Poets • 💃
+                            Dancers</p>
+                    </div>
+                    <!-- form -->
+                    <form id="signupForm" class="w-full" action="#" method="POST">
+                        <!-- form grid container -->
+                        <div class="grid gap-6">
+                            <!-- Email -->
+                            <div class="w-full">
+                                <label class="block text-sm font-medium text-white  mb-1">
+                                    Email
+                                </label>
+                                <input type="email" placeholder="you@example.com"
+                                    class="w-full rounded-md placeholder:text-[#A59E9E] placeholder:text-xs px-4 py-1 focus:outline-none focus:ring-1 focus:ring-[#7D27CE] border-2 border-[#4B4545]"
+                                    id="email" name="email" required />
+                            </div>
+                            <!-- Password -->
+                            <div class="w-full">
+                                <label class="block text-sm font-medium text-white  mb-1">
+                                    Password
+                                </label>
+                                <input type="password" placeholder="Minimum 8 Characters"
+                                    class="w-full rounded-md placeholder:text-[#A59E9E] placeholder:text-xs px-4 py-1 focus:outline-none focus:ring-1 focus:ring-[#7D27CE] border-2 border-[#4B4545]"
+                                    id="password" name="password" required />
+                            </div>
+                            <!-- Confirm Password -->
+                            <div class="w-full">
+                                <label class="block text-sm font-medium text-white  mb-1">
+                                    Confirm Password
+                                </label>
+                                <input type="password" placeholder="Re-enter Password"
+                                    class="w-full rounded-md placeholder:text-[#A59E9E] placeholder:text-xs px-4 py-1 focus:outline-none focus:ring-1 focus:ring-[#7D27CE] border-2 border-[#4B4545]"
+                                    id="confirm-password" name="confirm-password" required />
+                            </div>
+                            <!-- policy-agreement checkbox -->
+                            <label class="text-[#878484] text-xs mb-6">
+                                <input type="checkbox" id="terms" name="terms" value="agreed" required>
+                                I agree to the basic artist guidelines and that my profile will be reviewed before
+                                publishing.
+                            </label>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit"
+                            class="bg-[#CCAE05] text-[#000000] font-medium px-5 py-1 rounded-md hover:text-white hover:bg-[#7D27CE] transition duration-200 inset-shadow-[1.44px_1.44px_1.44px_#716F6F40] shadow-[1.44px_1.44px_1.44px_#716F6F80] cursor-pointer"
+                            id="signupBtn" name="signupBtn">
+                            Create Account
+                        </button>
+                    </form>
+
+                    <!-- login-page-link -->
+                    <div class="flex flex-wrap items-center gap-1 text-xs mt-6 ml-0 mr-auto">
+                        <p class="text-[#BEB9B9]">Already have an account?</p>
+                        <a href="./login.html" class="text-[#7C31F4] hover:text-white">
+                            Login
+                        </a>
+                    </div>
+
+                    <!-- error-msg -->
+                    <p id="errorMsg" class="error text-red-400 text-xs py-2 ml-0 mr-auto"></p>
+                    <!-- success-msg -->
+                    <p id="successMsg" class="error text-emerald-300 text-xs py-2 ml-0 mr-auto"></p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- footer -->
+    <footer
+        class="max-w-[1600px] mx-auto bg-[#3A3A3A] py-1 px-1 md:px-3 lg:px-17 lg:py-6 font-medium w-full text-sm flex flex-col justify-center items-center">
+        <h6 class="text-[#EAEAEA] font-semibold text-center">© 2025 Laugh & Vibe. All rights reserved.</h6>
+        <p class="text-[#9A9292] text-xs font-semibold text-center">Comedy • Music • Corporate • Private Events</p>
+    </footer>
+
+    <!-- js -->
+    <script src="./env.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="./supabaseClient.js"></script>
+    <script src="./signup.js" defer></script>
+</body>
+
+</html>
