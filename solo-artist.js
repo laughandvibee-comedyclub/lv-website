@@ -38,7 +38,7 @@ async function init() {
         const profile = await fetchProfile(userId);
         const media = await fetchMedia(userId);
 
-        
+
         await fillArtistData({ artist, profile, media });
     } catch (err) {
         console.error("Artist page load failed:", err);
@@ -202,8 +202,13 @@ async function fillArtistData({ artist, profile, media }) {
             "#profile-pic"
         );
 
-    if (heroImg && profileImage)
-        heroImg.src = profileImage.media_url;
+    if (heroImg && profileImage) {
+        const { data } = supabaseClient.storage
+            .from("artist-media")
+            .getPublicUrl(profileImage.media_url);
+
+        heroImg.src = data.publicUrl;
+    }
 
     /* Gallery Images */
     const galleryImgs =
@@ -218,11 +223,11 @@ async function fillArtistData({ artist, profile, media }) {
     });
 };
 
-    /* =========================
-       OPTIONAL LINK SETTER
-    ========================= */
+/* =========================
+   OPTIONAL LINK SETTER
+========================= */
 
-    function setOptionalLink(elementId, url) {
+function setOptionalLink(elementId, url) {
     const linkElement = document.getElementById(elementId);
 
     if (!linkElement) return;

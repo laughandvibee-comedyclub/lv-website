@@ -58,7 +58,7 @@ async function loadSelectable({
         .eq("user_id", artistId)
         .maybeSingle();
 
-    console.log("gridElementId:", gridElementId, "artistColumn:", artistColumn);
+    //console.log("gridElementId:", gridElementId, "artistColumn:", artistColumn);
 
     // fetch draft from localStorage if exists
     const draft = JSON.parse(localStorage.getItem("artistDraft")) || {};
@@ -80,6 +80,7 @@ async function loadSelectable({
         id="${table}-${item.id}"
         value="${item.id}"
         data-column="${artistColumn}"
+        data-label="${item.name}"
         class="peer selectable hidden"
         area-labelledby="label-${item.id}"
         ${isChecked ? "checked" : ""}
@@ -285,13 +286,56 @@ const bioPreview = document.getElementById("bioPreview");
 bioInput.addEventListener('input', () => {
     bioPreview.textContent = bioInput.value || "Your bio will appear here. Keep it crisp and bookable.";
 })
-//
-const categoryInput = document.getElementById("");
-const categoryPreview = document.getElementById("categoryPreview");
-const cityInput = document.getElementById("");
+
 const cityPreview = document.getElementById("cityPreview");
+const tagsPreview = document.getElementById("tags");
 
+/* =========================
+   LOOKUP HELPERS
+========================= */
 
+async function getNamesByIds(table, ids) {
+    if (!ids || ids.length === 0) return [];
+
+    const { data } = await supabaseClient
+        .from(table)
+        .select("id, name")
+        .in("id", ids);
+
+    return (data || []).map(d => d.name);
+};
+
+const displayTags = async () => {
+
+}
+
+function renderTags() {
+    tagsPreview.innerHTML = "";
+
+    const selectedCheckboxes = document.querySelectorAll(
+        'input[type="checkbox"]:checked'
+    );
+
+    if (selectedCheckboxes.length === 0) {
+        tagsPreview.textContent = "Selected tags will appear here";
+        return;
+    }
+
+    selectedCheckboxes.forEach(cb => {
+        const tag = document.createElement("span");
+        tag.textContent = cb.dataset.label; // use label text
+        tag.className =
+            "px-1 py-0.5 text-[#928A8A] text-sm bg-transparent border border-[#928A8A] rounded capitalize";
+
+        tagsPreview.appendChild(tag);
+    });
+}
+
+document.addEventListener("change", function (e) {
+    if (e.target.matches('input[type="checkbox"]')) {
+        renderTags();
+    }
+});
 
 /* -------------------------
    // 1. Utilities
@@ -361,7 +405,7 @@ function freezeForm() {
 }
 
 // fill form
-function fillForm(artist) {
+async function fillForm(artist) {
     document.querySelector("#base-city-select").value = artist.base_city || "";
     document.querySelector("#experience-select").value = artist.experience || "";
     document.querySelector("#portfolio-link").value = artist.portfolio_link || "";
@@ -375,10 +419,46 @@ function fillForm(artist) {
         artist.artist_code || "";
 
     // load base city in the preview
-    cityPreview.textContent = artist.base_city || "Base city";
+    cityPreview.textContent = artist.base_city || "";
 
     // load artist bio in the preview
     bioPreview.textContent = artist.bio || "Your bio will appear here. Keep it crisp and bookable.";
+
+    // to load tags in the preview
+    const categories = await getNamesByIds(
+        "categories",
+        artist.category_ids
+    );
+
+    const performanceTypes = await getNamesByIds(
+        "performance_types",
+        artist.performance_type_ids
+    );
+
+    const languages = await getNamesByIds(
+        "languages",
+        artist.language_ids
+    );
+
+    tagsPreview.innerHTML = ""; // clear previous tags
+
+    const allTags = [
+        ...categories,
+        ...performanceTypes,
+        ...languages
+    ];
+
+    if (allTags.length === 0) {
+        tagsPreview.textContent = "Selected tags will appear here";
+        return;
+    }
+
+    allTags.forEach(tagText => {
+        const tag = document.createElement("span");
+        tag.textContent = tagText;
+        tag.className = "px-1 py-0.5 text-[#928A8A] text-sm bg-transparent border border-[##928A8A] rounded capitalize";
+        tagsPreview.appendChild(tag);
+    });
 }
 
 
@@ -407,14 +487,14 @@ async function loadArtistProfile() {
         return;
     }
 
-    // 2️⃣ fill the form (inputs, selects, checkboxes, artist code)
+    // fill the form (inputs, selects, checkboxes, artist code)
     if (artist) {
         fillForm(artist); // populates inputs + artist code
     } else {
         restoreDraft(); // optional: restore local draft if no artist yet
     }
 
-    // 3️⃣ load selectable checkboxes **with selected IDs**
+    // load selectable checkboxes **with selected IDs**
     if (artist) {
         await loadSelectable({
             table: "categories",
@@ -529,6 +609,12 @@ async function handleFormSubmit(e) {
         document.getElementById("youtube-link")?.value || "not submitted";
     const bio = document.getElementById("bio").value;
     const audienceRange = document.getElementById("audience-select").value;
+
+    // profile image required validation
+    if (!currentProfilePath) {
+        alert("Profile image is required.");
+        return;
+    }
 
     // gallery images validation
     const count = galleryState.filter(Boolean).length;

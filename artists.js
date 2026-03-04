@@ -95,10 +95,19 @@ function artistMarketplace() {
                 console.error(mediaError);
             }
 
+            // get publicUrl of profile images
+            function getPublicImageUrl(path) {
+                const { data } = supabaseClient.storage
+                    .from("artist-media")
+                    .getPublicUrl(path);
+
+                return data.publicUrl;
+            }
+
             /* --- Build media map --- */
             const mediaMap = {};
             (mediaData || []).forEach(m => {
-                mediaMap[m.user_id] = m.media_url;
+                mediaMap[m.user_id] = getPublicImageUrl(m.media_url);
             });
 
             /* --- Final UI objects --- */
@@ -121,9 +130,7 @@ function artistMarketplace() {
                         .map(id => this.performanceMap[String(id)])
                         .filter(Boolean),
 
-                    profile_image:
-                        mediaMap[a.user_id] ||
-                        "../../assets/images/placeholders/profile-preview-placeholder.webp"
+                    profile_image: mediaMap[a.user_id] || "/assets/images/placeholders/profile-preview-placeholder.webp"
                 };
             });
 

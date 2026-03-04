@@ -192,9 +192,9 @@
                         <!-- profile-details form -->
                         <form id="profileForm" class="w-full" action="#" method="POST">
                             <!-- form grid container -->
-                            <div class="grid gap-6">
+                            <div class="grid lg:grid-cols-2 gap-6">
                                 <!-- Category-->
-                                <div class="w-full">
+                                <div class="w-full lg:col-span-2">
                                     <label class="block text-sm font-medium text-white  mb-1">
                                         Category
                                     </label>
@@ -208,22 +208,11 @@
                                         Base city
                                     </label>
                                     <select id="base-city-select" name="base-city-select" aria-label="base-city-select"
-                                        aria-required="true"
+                                        aria-required="true" required
                                         class="w-full rounded-md px-1 py-1 focus:outline-none focus:ring-1 focus:ring-[#7D27CE] border-2 border-[#4B4545] ::before">
                                         <option class="capitalize text-white text-sm" value="" disabled selected hidden>
-                                            Pune, Mumbai, Bengaluru.......
+                                            Select city
                                         </option>
-                                    </select>
-                                </div>
-
-                                <!-- Experience -->
-                                <div class="w-full">
-                                    <label for="experience-select" class="block text-sm font-medium text-white  mb-1">
-                                        Experience
-                                    </label>
-                                    <select id="experience-select" name="experience-select"
-                                        aria-label="experience-select" aria-required="true"
-                                        class="w-full rounded-md px-1 py-1 focus:outline-none focus:ring-1 focus:ring-[#7D27CE] border-2 border-[#4B4545] ::before">
                                     </select>
                                 </div>
 
@@ -248,7 +237,6 @@
 
                                 <!-- Gallery image -->
                                 <div class="w-full">
-                                    <p id="galleryUploadHint" class="text-xs text-[#928A8A] mb-1"></p>
                                     <label for="galleryImgInput" class="block text-sm font-medium text-white  mb-1">
                                         Gallery image
                                     </label>
@@ -267,8 +255,22 @@
                                     </div>
                                 </div>
 
-                                <!-- portfolio link -->
+                                <!-- Experience -->
                                 <div class="w-full">
+                                    <label for="experience-select" class="block text-sm font-medium text-white  mb-1">
+                                        Experience
+                                    </label>
+                                    <select id="experience-select" name="experience-select"
+                                        aria-label="experience-select" aria-required="true" required
+                                        class="w-full rounded-md px-1 py-1 focus:outline-none focus:ring-1 focus:ring-[#7D27CE] border-2 border-[#4B4545] ::before">
+                                        <option class="capitalize text-white text-sm" value="" disabled selected hidden>
+                                            Select Experience
+                                        </option>
+                                    </select>
+                                </div>
+
+                                <!-- portfolio link -->
+                                <div class="w-full lg:col-span-2">
                                     <label class="block text-sm font-medium text-white  mb-1">
                                         Portfolio link
                                     </label>
@@ -298,17 +300,17 @@
                                 </div>
 
                                 <!-- Bio -->
-                                <div class="w-full">
+                                <div class="w-full lg:col-span-2">
                                     <label class="block text-sm font-medium text-white  mb-1">
                                         Bio
                                     </label>
-                                    <textarea name="bio" id="bio" rows="4"
+                                    <textarea name="bio" id="bio" rows="4" required
                                         placeholder="Write 3-5 lines about what you do, your style, and what kind of events you’re great at."
                                         class="w-full rounded-md placeholder:text-[#A59E9E] placeholder:text-xs px-4 py-1 focus:outline-none focus:ring-1 focus:ring-[#7D27CE] border-2 border-[#4B4545]"></textarea>
                                 </div>
 
                                 <!-- Languages-->
-                                <div class="w-full">
+                                <div class="w-full lg:col-span-2">
                                     <label class="block text-sm font-medium text-white  mb-1">
                                         Languages
                                     </label>
@@ -317,7 +319,7 @@
                                 </div>
 
                                 <!-- Performance types-->
-                                <div class="w-full">
+                                <div class="w-full lg:col-span-2">
                                     <label class="block text-sm font-medium text-white  mb-1">
                                         Performance types
                                     </label>
@@ -325,29 +327,33 @@
                                     </div>
                                 </div>
 
-                                <!-- Audience Range -->
-                                <div class="w-full">
-                                    <label for="audience-select" class="block text-sm font-medium text-white  mb-1">
-                                        Audience Range
-                                    </label>
-                                    <select id="audience-select" name="audience-select" aria-label="audience-select"
-                                        aria-required="true"
-                                        class="w-full rounded-md px-1 py-1 focus:outline-none focus:ring-1 focus:ring-[#7D27CE] border-2 border-[#4B4545] ::before">
-                                    </select>
-                                </div>
-
                                 <!-- Availability-->
-                                <div class="w-full">
+                                <div class="w-full lg:col-span-2">
                                     <label class="block text-sm font-medium text-white  mb-1">
                                         Availability
                                     </label>
                                     <div id="availabilityGrid" class="flex flex-wrap gap-3">
                                     </div>
                                 </div>
+
+                                <!-- Audience Range -->
+                                <div class="w-full lg:col-span-2">
+                                    <label for="audience-select" class="block text-sm font-medium text-white  mb-1">
+                                        Audience Range
+                                    </label>
+                                    <select id="audience-select" name="audience-select" aria-label="audience-select"
+                                        aria-required="true" required
+                                        class="w-full rounded-md px-1 py-1 focus:outline-none focus:ring-1 focus:ring-[#7D27CE] border-2 border-[#4B4545] ::before">
+                                        <option class="capitalize text-white text-sm" value="" disabled selected hidden>
+                                            Select availability
+                                        </option>
+                                    </select>
+                                </div>
                             </div>
+
                             <!-- Submit Button -->
                             <button type="submit"
-                                class="w-fit ml-auto bg-[#CCAE05] text-[#000000] font-medium px-5 py-1 mt-6 rounded-md hover:text-white hover:bg-[#7D27CE] transition duration-200 inset-shadow-[1.44px_1.44px_1.44px_#716F6F40] shadow-[1.44px_1.44px_1.44px_#716F6F80] cursor-pointer"
+                                class="w-fit flex justify-end ml-auto mr-0 bg-[#CCAE05] text-[#000000] font-medium px-5 py-1 mt-6 rounded-md hover:text-white hover:bg-[#7D27CE] transition duration-200 inset-shadow-[1.44px_1.44px_1.44px_#716F6F40] shadow-[1.44px_1.44px_1.44px_#716F6F80] cursor-pointer"
                                 id="submitBtn" name="submitBtn">
                                 Save & Submit
                             </button>
@@ -359,7 +365,7 @@
                         <!-- profile img preview -->
                         <div class="relative">
                             <img id="profileImagePreview"
-                                src="/assets/images/placeholders/profile-preview-placeholder.webp"
+                                src="../../assets/images/placeholders/profile-preview-placeholder.webp"
                                 alt="Profile preview placeholder" loading="lazy" width="400" height="400"
                                 class="rounded-2xl object-cover" />
 
@@ -374,8 +380,9 @@
                                 <p id="namePreview" class="max-w-xl lg:max-w-5xl font-light text-[#928A8A] capitalize">
                                     Artist Name
                                 </p>
-                                <p class="text-sm text-[#928A8A]"><span id="categoryPreview">Category</span> •
-                                    <span id="cityPreview" class="capitalize">Base city</span></p>
+                                <p class="text-sm text-[#928A8A]"><span id="categoryPreview">Base city</span> •
+                                    <span id="cityPreview" class="capitalize"></span>
+                                </p>
                             </div>
                             <!-- bio -->
                             <p id="bioPreview"
@@ -383,82 +390,87 @@
                                 Your bio will appear here. Keep it crisp and bookable.
                             </p>
                             <!-- tags -->
-                            <p class="max-w-md lg:max-w-lg font-light text-sm md:text-base text-[#928A8A] self-start">
-                                tags
-                            </p>
+                            <div id="tags" class="flex flex-wrap gap-2 max-w-md lg:max-w-lg font-light text-sm md:text-base text-[#928A8A] self-start"></div>
                         </div>
                         <!-- sub-flex of gallery imgs -->
+                         <p id="galleryUploadHint" class="text-xs text-[#928A8A] mb-1 self-start"></p>
                         <div class="flex justify-center flex-wrap gap-6">
-                            <div class="relative gallery-slot">
-                                <img id="galleryImg1" src="/assets/images/placeholders/gallery-preview-placeholder.webp"
-                                    alt="Gallery preview" loading="lazy" width="120" height="120"
-                                    class="rounded-2xl object-cover" />
+                                <div class="relative gallery-slot">
+                                    <img id="galleryImg1"
+                                        src="../../assets/images/placeholders/gallery-preview-placeholder.webp"
+                                        alt="Gallery preview" loading="lazy" width="120" height="120"
+                                        class="rounded-2xl object-cover" />
 
-                                <button
-                                    class="deleteGalleryBtn hidden absolute -top-2 -right-2 bg-black text-white w-6 h-6 rounded-full text-xs"
-                                    data-slot="1">
-                                    ✕
-                                </button>
-                            </div>
-                            <div class="relative gallery-slot">
-                                <img id="galleryImg2" src="/assets/images/placeholders/gallery-preview-placeholder.webp"
-                                    alt="Gallery preview" loading="lazy" width="120" height="120"
-                                    class="rounded-2xl object-cover" />
+                                    <button
+                                        class="deleteGalleryBtn hidden cursor-pointer absolute -top-2 -right-2 bg-black text-white w-6 h-6 rounded-full text-xs"
+                                        data-slot="1">
+                                        ✕
+                                    </button>
+                                </div>
+                                <div class="relative gallery-slot">
+                                    <img id="galleryImg2"
+                                        src="../../assets/images/placeholders/gallery-preview-placeholder.webp"
+                                        alt="Gallery preview" loading="lazy" width="120" height="120"
+                                        class="rounded-2xl object-cover" />
 
-                                <button
-                                    class="deleteGalleryBtn hidden absolute -top-2 -right-2 bg-black text-white w-6 h-6 rounded-full text-xs"
-                                    data-slot="2">
-                                    ✕
-                                </button>
-                            </div>
-                            <div class="relative gallery-slot">
-                                <img id="galleryImg3" src="/assets/images/placeholders/gallery-preview-placeholder.webp"
-                                    alt="Gallery preview" loading="lazy" width="120" height="120"
-                                    class="rounded-2xl object-cover" />
+                                    <button
+                                        class="deleteGalleryBtn hidden cursor-pointer absolute -top-2 -right-2 bg-black text-white w-6 h-6 rounded-full text-xs"
+                                        data-slot="2">
+                                        ✕
+                                    </button>
+                                </div>
+                                <div class="relative gallery-slot">
+                                    <img id="galleryImg3"
+                                        src="../../assets/images/placeholders/gallery-preview-placeholder.webp"
+                                        alt="Gallery preview" loading="lazy" width="120" height="120"
+                                        class="rounded-2xl object-cover" />
 
-                                <button
-                                    class="deleteGalleryBtn hidden absolute -top-2 -right-2 bg-black text-white w-6 h-6 rounded-full text-xs"
-                                    data-slot="3">
-                                    ✕
-                                </button>
-                            </div>
-                            <div class="relative gallery-slot">
-                                <img id="galleryImg4" src="/assets/images/placeholders/gallery-preview-placeholder.webp"
-                                    alt="Gallery preview" loading="lazy" width="120" height="120"
-                                    class="rounded-2xl object-cover" />
+                                    <button
+                                        class="deleteGalleryBtn hidden cursor-pointer absolute -top-2 -right-2 bg-black text-white w-6 h-6 rounded-full text-xs"
+                                        data-slot="3">
+                                        ✕
+                                    </button>
+                                </div>
+                                <div class="relative gallery-slot">
+                                    <img id="galleryImg4"
+                                        src="../../assets/images/placeholders/gallery-preview-placeholder.webp"
+                                        alt="Gallery preview" loading="lazy" width="120" height="120"
+                                        class="rounded-2xl object-cover" />
 
-                                <button
-                                    class="deleteGalleryBtn hidden absolute -top-2 -right-2 bg-black text-white w-6 h-6 rounded-full text-xs"
-                                    data-slot="4">
-                                    ✕
-                                </button>
-                            </div>
-                            <div class="relative gallery-slot">
-                                <img id="galleryImg5" src="/assets/images/placeholders/gallery-preview-placeholder.webp"
-                                    alt="Gallery preview" loading="lazy" width="120" height="120"
-                                    class="rounded-2xl object-cover" />
+                                    <button
+                                        class="deleteGalleryBtn hidden cursor-pointer absolute -top-2 -right-2 bg-black text-white w-6 h-6 rounded-full text-xs"
+                                        data-slot="4">
+                                        ✕
+                                    </button>
+                                </div>
+                                <div class="relative gallery-slot">
+                                    <img id="galleryImg5"
+                                        src="../../assets/images/placeholders/gallery-preview-placeholder.webp"
+                                        alt="Gallery preview" loading="lazy" width="120" height="120"
+                                        class="rounded-2xl object-cover" />
 
-                                <button
-                                    class="deleteGalleryBtn hidden absolute -top-2 -right-2 bg-black text-white w-6 h-6 rounded-full text-xs"
-                                    data-slot="5">
-                                    ✕
-                                </button>
-                            </div>
-                            <div class="relative gallery-slot">
-                                <img id="galleryImg6" src="/assets/images/placeholders/gallery-preview-placeholder.webp"
-                                    alt="Gallery preview" loading="lazy" width="120" height="120"
-                                    class="rounded-2xl object-cover" />
+                                    <button
+                                        class="deleteGalleryBtn hidden cursor-pointer absolute -top-2 -right-2 bg-black text-white w-6 h-6 rounded-full text-xs"
+                                        data-slot="5">
+                                        ✕
+                                    </button>
+                                </div>
+                                <div class="relative gallery-slot">
+                                    <img id="galleryImg6"
+                                        src="../../assets/images/placeholders/gallery-preview-placeholder.webp"
+                                        alt="Gallery preview" loading="lazy" width="120" height="120"
+                                        class="rounded-2xl object-cover" />
 
-                                <button
-                                    class="deleteGalleryBtn hidden absolute -top-2 -right-2 bg-black text-white w-6 h-6 rounded-full text-xs"
-                                    data-slot="6">
-                                    ✕
-                                </button>
+                                    <button
+                                        class="deleteGalleryBtn hidden cursor-pointer absolute -top-2 -right-2 bg-black text-white w-6 h-6 rounded-full text-xs"
+                                        data-slot="6">
+                                        ✕
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
         </section>
     </main>
     <!-- footer -->

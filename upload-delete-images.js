@@ -89,6 +89,12 @@ uploadBtn.addEventListener("click", async () => {
         return;
     }
 
+    /* VALIDATION: block if profile already exists */
+    if (currentProfilePath) {
+        alert("You already have a profile image. Please delete it first.");
+        return;
+    }
+
     /* STEP 1: find old profile */
     const { data: oldMedia } = await supabaseClient
         .from("artist_media")
@@ -100,10 +106,10 @@ uploadBtn.addEventListener("click", async () => {
     /* STEP 2: delete old storage file */
     if (oldMedia) {
         await supabaseClient.storage
-            .from(bucket)
+            .from("artist-media")
             .remove([oldMedia.media_url]);
 
-        await supabase
+        await supabaseClient
             .from("artist_media")
             .delete()
             .eq("id", oldMedia.id);
@@ -116,7 +122,7 @@ uploadBtn.addEventListener("click", async () => {
 
     /* STEP 4: upload */
     const { error } = await supabaseClient.storage
-        .from(bucket)
+        .from("artist-media")
         .upload(path, resizedFile, { upsert: true });
 
     if (error) {
@@ -132,13 +138,13 @@ uploadBtn.addEventListener("click", async () => {
     /* STEP 5: save DB */
     await supabaseClient.from("artist_media").insert({
         user_id: artistId,
-        media_url: publicUrl.publicUrl,
+        media_url: path,
         media_type: "profile"
     });
 
     /* STEP 6: preview */
     const { data } = supabaseClient.storage
-        .from(bucket)
+        .from("artist-media")
         .getPublicUrl(path);
 
     preview.src = data.publicUrl;
@@ -158,9 +164,11 @@ deleteBtn.addEventListener("click", async () => {
     } = await supabaseClient.auth.getUser();
     if (!user) return;
 
+    //console.log("deleting path:", currentProfilePath);
+
     /* remove storage */
     await supabaseClient.storage
-        .from(bucket)
+        .from("artist-media")
         .remove([currentProfilePath]);
 
     /* remove DB entry */
@@ -176,6 +184,7 @@ deleteBtn.addEventListener("click", async () => {
     deleteBtn.classList.add("hidden");
     currentProfilePath = null;
 });
+
 
 // /* ----------------------*/
 //        Gallery Pics
@@ -201,22 +210,22 @@ function getEmptySlot() {
 
 // helper function
 function updateGalleryHint() {
-  const count = galleryState.filter(Boolean).length;
-  const remaining = MIN_REQUIRED - count;
+    const count = galleryState.filter(Boolean).length;
+    const remaining = MIN_REQUIRED - count;
 
-  const hint = document.getElementById("galleryUploadHint");
+    const hint = document.getElementById("galleryUploadHint");
 
-  if (count === 0) {
-    hint.textContent = "Upload 5–6 gallery images.";
-  } else if (remaining > 0) {
-    hint.textContent =
-      `Upload at least ${remaining} more gallery images.`;
-  } else if (count < MAX_SLOTS) {
-    hint.textContent =
-      `You can upload ${MAX_SLOTS - count} more images (optional).`;
-  } else {
-    hint.textContent = "Maximum gallery images uploaded.";
-  }
+    if (count === 0) {
+        hint.textContent = "Upload 5–6 gallery images.";
+    } else if (remaining > 0) {
+        hint.textContent =
+            `Upload at least ${remaining} more gallery images.`;
+    } else if (count < MAX_SLOTS) {
+        hint.textContent =
+            `You can upload ${MAX_SLOTS - count} more gallery images (optional).`;
+    } else {
+        hint.textContent = "Maximum gallery images uploaded.";
+    }
 }
 
 // preview update
@@ -308,7 +317,7 @@ galleryUploadBtn.addEventListener("click", async () => {
             media_type: "gallery",
         })
         .select()
-        .maybeSingleingle();
+        .single();
 
     galleryState[slot] = {
         id: row.id,
@@ -327,8 +336,9 @@ galleryUploadBtn.addEventListener("click", async () => {
 deleteBtns.forEach((btn, index) => {
     btn.addEventListener("click", async () => {
         const item = galleryState[index];
-        console.log("Deleting:", item);
+        //console.log("Deleting:", item);
         if (!item) return;
+
 
         await supabaseClient.storage
             .from("artist-media")
@@ -374,19 +384,19 @@ async function loadArtistMedia(artistId) {
         .eq("user_id", artistId)
         .order("created_at");
 
-    if (error || !data) {
+    if (error || !data || data.length === 0) {
         console.log("No media found");
+        preview.src =
+            "/assets/images/placeholders/profile-preview-placeholder.webp";
         return;
     }
-
-    // galleryState = new Array(6).fill(null);
 
     /* Profile */
     const profile = data.find(m => m.media_type === "profile");
 
     if (profile) {
         const { data: urlData } = supabaseClient.storage
-            .from(bucket)
+            .from("artist-media")
             .getPublicUrl(profile.media_url);
 
         document.getElementById("profileImagePreview").src =
