@@ -50,34 +50,34 @@
             <nav
                 class="flex flex-col w-full lg:w-fit divide-y divide-gray-600 lg:divide-y-0 lg:flex-row space-x-2.5 xl:space-x-4 2xl:space-x-8 text-xs flex-wrap max-lg:max-h-0 max-lg:overflow-hidden max-lg:peer-checked:max-h-[600px] transition-all duration-300 ease-in-out">
                 <div class="w-full lg:w-fit py-4 text-center max-lg:border-t border-gray-600">
-                    <a class="" href="https://laughandvibe.netlify.app">Home</a>
+                    <a class="" href="../../index.html#">Home</a>
                 </div>
                 <div class="w-full lg:w-fit py-4 text-center">
-                    <a href="https://laughandvibe.netlify.app/src/about.html">About</a>
+                    <a href="../about.html">About</a>
                 </div>
                 <div class="w-full lg:w-fit py-4 text-center">
-                    <a href="https://laughandvibe.netlify.app/#our-services-section">Service</a>
+                    <a href="../../index.html#our-services-section">Service</a>
                 </div>
                 <div class="w-full lg:w-fit py-4 text-center">
-                    <a href="https://laughandvibe.netlify.app/src/shows.html">Shows</a>
+                    <a href="../shows.html">Shows</a>
                 </div>
                 <div class="w-full lg:w-fit py-4 text-center">
-                    <a href="https://laughandvibe.netlify.app/src/for-corporates.html">For Corporates</a>
+                    <a href="../for-corporates.html">For Corporates</a>
                 </div>
                 <div class="w-full lg:w-fit py-4 text-center">
-                    <a href="https://laughandvibe.netlify.app/src/for-colleges.html">For Colleges</a>
+                    <a href="../for-colleges.html">For Colleges</a>
                 </div>
                 <div class="w-full lg:w-fit py-4 text-center">
                     <a href="#">Artists</a>
                 </div>
                 <div class="w-full lg:w-fit py-4 text-center">
-                    <a href="https://laughandvibe.netlify.app/#inside-the-room">Gallery</a>
+                    <a href="../../index.html#inside-the-room">Gallery</a>
                 </div>
                 <div class="w-full lg:w-fit py-4 text-center">
-                    <a href="https://laughandvibe.netlify.app/src/studio-rental.html">Studio Rental</a>
+                    <a href="../studio-rental.html">Studio Rental</a>
                 </div>
                 <div class="w-full lg:w-fit py-4 text-center max-lg:border-b border-gray-600">
-                    <a href="https://laughandvibe.netlify.app/src/contact.html">Contact</a>
+                    <a href="../contact.html">Contact</a>
                 </div>
             </nav>
 
@@ -122,9 +122,9 @@
         </section>
 
         <!-- filter artists section -->
-        <section id="filter-artists" class="bg-[#000000] px-1 md:px-3 lg:px-17">
+        <section id="filter-artists" class="bg-[#000000] px-1 md:px-3 lg:px-17 max-w-screen mx-auto">
 
-            <div x-data="artistMarketplace()" x-init="init()" class="container">
+            <div x-data="artistMarketplace()" x-init="init()" class="">
                 <!-- CATEGORY TABS FILTER -->
                 <div class="filters flex gap-4 flex-wrap py-10">
                     <template x-for="f in filters" :key="f.type + '-' + f.id">
@@ -136,16 +136,15 @@
                     </template>
                 </div>
 
-
                 <hr class="bg-neutral-700 border-0 h-0.5">
 
                 <!-- artist cards display section -->
-                <div id="artist-cards" class="bg-[#000000] px-1 md:px-3 lg:px-17">
+                <div id="artist-cards" class="pt-10">
                     <!-- ARTIST GRID -->
-                    <div class="grid md:grid-col-2 lg:grid-col-3 gap-6 py-16">
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 place-content-center max-w-screen">
                         <template x-for="artist in paginatedArtists" :key="artist.artist_code">
                             <div
-                                class="max-w-60 sm:max-w-96 text-white bg-linear-to-tr from-[#000000] to-[#544F56] flex flex-col gap-2 pb-12 rounded-xl justify-baseline max-sm:p-0.5 px-4 py-4 inset-shadow-[4.51px_6.01px_6.01px_#716F6F40] shadow-[6.01px_6.01px_8.12px_#716F6F80]">
+                                class="w-full sm:min-w-xl text-white bg-linear-to-tr from-[#000000] to-[#544F56] flex flex-col gap-2 pb-12 rounded-xl justify-baseline max-sm:p-0.5 px-4 py-4 inset-shadow-[4.51px_6.01px_6.01px_#716F6F40] shadow-[6.01px_6.01px_8.12px_#716F6F80]">
                                 <img :src="artist.profile_image" alt="artist.name profile img"
                                     class="w-full rounded-md object-cover">
                                 <div class="flex justify-between flex-wrap">
@@ -171,16 +170,16 @@
                                     </template>
                                 </div>
 
-                                <div class="mt-2 flex gap-4 flex-wrap">
+                                <div class="my-4 flex gap-4 flex-wrap">
                                     <button
-                                        class="bg-[#EFCB00] px-2.5 py-1.5 rounded font-medium text-[#000000] max-md:text-xs cursor-pointer"
+                                        class="bg-[#EFCB00] px-2.5 py-1.5 mb-3 rounded font-medium text-[#000000] max-md:text-xs cursor-pointer"
                                         onclick="window.open('https://drive.google.com/file/d/1-dEVJ8U3L09YReHxWHXnBqwJ0jK_6Z3n/view?usp=sharing', '_blank');"
                                         target="_blank">
                                         Book
                                     </button>
 
                                     <button @click="openArtist(artist.artist_code)"
-                                        class="bg-[#7C31F4] px-2.5 py-1.5 rounded font-medium text-[#FFFFFF] max-md:text-xs cursor-pointer"
+                                        class="bg-[#7C31F4] px-2.5 py-1.5 mb-3 rounded font-medium text-[#FFFFFF] max-md:text-xs cursor-pointer"
                                         target="_blank">
                                         Profile
                                     </button>
@@ -209,8 +208,7 @@
                                     <!-- NEXT -->
                                     <button x-show="page < totalPages" @click="page++"
                                         class="px-3 py-1 text-gray-300 hover:text-white">
-                                        >>
-                                    </button>
+                                        >> </button>
                         </div>
                     </div>
                 </div>
@@ -284,5 +282,5 @@
     <script defer src="./artists.js"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </body>
-</html>
 
+</html>
