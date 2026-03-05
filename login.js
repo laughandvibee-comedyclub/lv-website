@@ -32,9 +32,15 @@ supabaseClient.auth.onAuthStateChange(async (event, session) => {
 
   // Verified but no basic info → collect-basic-info
   if (!profile) {
+    loginBtn.disabled = true;
+    loginBtn.textContent = "Redirecting..."
+    successMsg.textContent ="Redirecting to Basic Info page.";
     window.location.replace("./basic-info.html");
   } else {
     // Verified + basic info done → dashboard
+    loginBtn.disabled = true;
+    loginBtn.textContent = "Signing in..."
+    successMsg.textContent ="Signing in...";
     window.location.replace("./profile-form.html");
   }
 });
@@ -44,6 +50,7 @@ supabaseClient.auth.onAuthStateChange(async (event, session) => {
 -------------------------- */
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
+  //await supabase.auth.signOut();
 
   // Prevent repeat clicks
   if (loginBtn.disabled) return;

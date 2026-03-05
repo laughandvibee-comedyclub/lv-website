@@ -164,8 +164,6 @@ deleteBtn.addEventListener("click", async () => {
     } = await supabaseClient.auth.getUser();
     if (!user) return;
 
-    //console.log("deleting path:", currentProfilePath);
-
     /* remove storage */
     await supabaseClient.storage
         .from("artist-media")
@@ -336,7 +334,6 @@ galleryUploadBtn.addEventListener("click", async () => {
 deleteBtns.forEach((btn, index) => {
     btn.addEventListener("click", async () => {
         const item = galleryState[index];
-        //console.log("Deleting:", item);
         if (!item) return;
 
 

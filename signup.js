@@ -17,27 +17,6 @@ function resetSubmit() {
 }
 
 // -------------------------
-// AUTH STATE LISTENER
-// -------------------------
-supabaseClient.auth.onAuthStateChange(async (event, session) => {
-  if (event !== "SIGNED_IN" || !session) return;
-
-  const verified = !!session.user.email_confirmed_at;
-
-  const { data: profile } = await supabaseClient
-    .from("profiles")
-    .select("id")
-    .eq("id", session.user.id)
-    .maybeSingle();
-
-  if (!verified || !profile) {
-    window.location.replace("./basic-info.html");
-  } else {
-    window.location.replace("./profile-form.html");
-  }
-});
-
-// -------------------------
 // EMAIL SIGNUP
 // -------------------------
 form.addEventListener("submit", async (e) => {
@@ -69,6 +48,9 @@ form.addEventListener("submit", async (e) => {
     password,
     options: {
       emailRedirectTo: `${location.origin}/src/auth/basic-info.html`
+    },
+    data: {
+      terms_accepted: true
     }
   });
 

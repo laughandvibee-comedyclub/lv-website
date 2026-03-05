@@ -68,7 +68,9 @@ function artistMarketplace() {
             id,
             full_name
           )
-        `);
+        `)
+        .eq("status", "active")
+        .order("created_at", { ascending: true });
 
             if (error) {
                 console.error(error);
@@ -135,9 +137,6 @@ function artistMarketplace() {
             });
 
             this.applyFilter();
-            console.log("Initial filtered:", this.filtered.length);
-            console.log("After filter:", this.filtered.length);
-            console.log(this.artists)
         },
 
         /* ================= FILTERING ================= */
@@ -148,7 +147,6 @@ function artistMarketplace() {
         },
 
         applyFilter() {
-            console.log("Selected Filter Object:", this.selectedFilter);
             if (this.selectedFilter.type === "all") {
                 this.filtered = this.artists;
                 return;

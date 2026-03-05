@@ -51,22 +51,32 @@ form.addEventListener("submit", async (e) => {
   // 🇮🇳 Indian phone validation
   if (!/^[6-9]\d{9}$/.test(phoneRaw)) {
     errorMsg.textContent = "Enter a valid Indian phone number";
+    submitBtn.disabled = false;
     return;
   }
 
   const phone = `${countryCode}${phoneRaw}`;
 
-  const { error } = await supabaseClient.from("profiles").insert({
+  const { error } = await supabaseClient.from("profiles").upsert({
     id: session.user.id, //PK
+    email: session.user.email,
+    email_verified: !!session.user.email_confirmed_at,
+    terms_version_accepted: "v1.0",
     full_name: name,
     whatsapp_number: phone,   // role is set to default -> artist in the db
-  });
+  })
+    .select()
+    .single();
 
   if (error) {
     submitBtn.disabled = false;
     errorMsg.textContent = error.message;
     return;
   }
+
+  // hide form immediately
+  form.style.display = "none";
+  statusMsg.textContent = "Profile created. Redirecting...";
 
   window.location.replace("./profile-form.html");
 });

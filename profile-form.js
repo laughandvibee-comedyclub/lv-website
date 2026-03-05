@@ -58,8 +58,6 @@ async function loadSelectable({
         .eq("user_id", artistId)
         .maybeSingle();
 
-    //console.log("gridElementId:", gridElementId, "artistColumn:", artistColumn);
-
     // fetch draft from localStorage if exists
     const draft = JSON.parse(localStorage.getItem("artistDraft")) || {};
 
