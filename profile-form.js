@@ -600,11 +600,11 @@ async function handleFormSubmit(e) {
     const baseCity = document.getElementById("base-city-select").value;
     const experience = document.getElementById("experience-select").value;
     const portfolioLink =
-        document.getElementById("portfolio-link")?.value || "not submitted";
+        document.getElementById("portfolio-link")?.value.trim() || "";
     const instagramLink =
-        document.getElementById("instagram-link")?.value || "not submitted";
+        document.getElementById("instagram-link")?.value.trim() || "";
     const youtubeLink =
-        document.getElementById("youtube-link")?.value || "not submitted";
+        document.getElementById("youtube-link")?.value.trim() || "";
     const bio = document.getElementById("bio").value;
     const audienceRange = document.getElementById("audience-select").value;
 
@@ -621,6 +621,37 @@ async function handleFormSubmit(e) {
         alert("Upload at least 5 gallery images");
         return;
     }
+
+    // maclength validation for bio
+    if (bio.length > 300) {
+        alert("Bio can have maximum 300 characters.");
+        return;
+    }
+
+    // artist links validation
+    const links = [portfolioLink, instagramLink, youtubeLink]
+
+    for (const link of links) {
+        if (link) {
+            try {
+                const url = new URL(link);
+
+                if (url.protocol !== "https:") {
+                    alert("URL must start with https://");
+                    return;
+                }
+
+            } catch {
+                alert("Enter a valid URL.");
+                return;
+            }
+        }
+    }
+
+    // for backend
+    portfolioLink: portfolioLink || "not submitted";
+    instagramLink: instagramLink || "not submitted";
+    youtubeLink: youtubeLink || "not submitted";
 
     /* -------------------------
        UPSERT ARTIST
